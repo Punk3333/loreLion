@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Preahvihear&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         margin: 0;
@@ -11,44 +21,163 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
+        /* scroll-snap-type: x mandatory; */
         -webkit-overflow-scrolling: touch;
       }
       .item {
         flex-shrink: 0;
-        width: 100vw;
+        width: 105vw;
         height: 100vh;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        scroll-snap-align: start; /**/
+      }
+      .item img {
+        width: 100%;
+        height: auto;
+      }
+
+      .subTitle,
+      .title {
+        margin-top: 150px;
+        font-family: "Caprasimo", cursive;
+      }
+      div {
+        font-family: "Courgette", cursive;
+        text-align: center;
+      }
+      h5 {
+        font-size: 2.5em;
+        color: darkolivegreen;
+      }
+      .page1 h5 {
+        margin-top: 1300px;
+      }
+      .page2 h5 {
+        margin-top: 1200px;
+        margin-right: 250px;
+      }
+      .page3 h5 {
+        margin-top: 1000px;
+        margin-right: 300px;
+      }
+      .page4 h5 {
+        margin-left: 150px;
+        margin-top: 1450px;
+        color: rgb(0, 0, 0);
+      }
+      .page5 h5 {
+        margin-left: 100px;
+        margin-top: 1400px;
+      }
+      .page6 h5 {
+        margin-top: 1420px;
+        margin-right: 150px;
+        color: rgb(252, 252, 252);
+      }
+      .page7 h5 {
+        margin-top: 1400px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="item" style="background-image: url('./img/6.jpg')"></div>
-      <div class="item" style="background-image: url('./img/0.jpg')"></div>
-      <div class="item" style="background-image: url('./img/1.jpg')"></div>
-      <div class="item" style="background-image: url('./img/2.jpg')"></div>
-      <div class="item" style="background-image: url('./img/3.jpg')"></div>
-      <div class="item" style="background-image: url('./img/4.jpg')"></div>
-      <div class="item" style="background-image: url('./img/5.jpg')"></div>
+      <div class="item" style="background-image: url('./img/W.jpg')">
+        <div class="title"><h1>Lorelion and the Chippendale Bookcase</h1></div>
+        <div class="subTitle"><h2>A Tale of Friendship and Adventure</h2></div>
+      </div>
+      <div class="item page1" style="background-image: url('./img/6.jpg')">
+        <h5>
+          She was a stuffed lioness <br />
+          who longed to be alive<br />
+          Who weary of living in pointlessness <br />
+          Abruptly left wanting of succeed
+        </h5>
+      </div>
+      <div class="item page2" style="background-image: url('./img/4.jpg')">
+        <h5>
+          She found a chippendale bookcase <br />
+          With books of every kind <br />
+          She liked to read them and learn new wares <br />
+          And be independent in her mind
+        </h5>
+      </div>
+      <div class="item page3" style="background-image: url('./img/3.jpg')">
+        <h5>
+          she often was in the thick of things<br />
+          So she went unnoticed for a time <br />
+          reflecting on herself she learned<br />
+          her hair was not sublime
+        </h5>
+      </div>
+      <div class="item page4" style="background-image: url('./img/2.jpg')">
+        <h5>
+          time But she also missed her dear friend <br />
+          And wondered how she fared <br />She spent some time concealed afar
+          <br />
+          And hoped that she still cared
+        </h5>
+      </div>
+      <div class="item page5" style="background-image: url('./img/1.jpg')">
+        <h5>
+          The lass was sad but also glad <br />
+          That Lorelion chased her dream <br />She wrote her back and told her
+          so <br />
+          And said they were still a team
+        </h5>
+      </div>
+      <div class="item page6" style="background-image: url('./img/0.jpg')">
+        <h5>
+          They kept in touch and shared their lives <br />And never lost their
+          spark <br />They knew they had a splendid bond <br />That shone both
+          in light and dark
+        </h5>
+      </div>
+      <div class="item page7" style="background-image: url('./img/4.jpg')">
+        <h5>
+          They both were glad and grateful then <br />For having such a friend
+          <br />They both were keen and eager too <br />For meeting after after
+          work in the end.
+        </h5>
+      </div>
+      <div class="item" style="background-image: url('./img/A.jpg')"></div>
     </div>
 
     <script>
-      var container = document.querySelector(".container");
-      var items = document.querySelectorAll(".item");
-      var itemWidth = items[0].offsetWidth;
+      const container = document.querySelector(".container");
+      const items = document.querySelectorAll(".item");
+      const itemWidth = items[2].offsetWidth;
 
-      container.addEventListener("scroll", function (event) {
-        var scrollLeft = container.scrollLeft;
+      container.addEventListener("scroll", (event) => {
+        const scrollLeft = container.scrollLeft;
 
-        items.forEach(function (item) {
-          var itemLeft = item.offsetLeft - container.offsetLeft;
+        items.forEach((item) => {
+          const itemLeft = item.offsetLeft - container.offsetLeft;
 
-          var transform =
-            "translateX(" + ((scrollLeft - itemLeft) / itemWidth) * 50 + "vw)";
+          const transform = `translateX(${
+            (scrollLeft - itemLeft) / itemWidth
+          }vw)`;
           item.style.transform = transform;
         });
+      });
+
+      //  Items centered?
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              console.log("true");
+            } else {
+              console.log("false");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      items.forEach((item) => {
+        observer.observe(item);
       });
     </script>
   </body>
